@@ -27,9 +27,9 @@ public class Student {
     private boolean status;
     private LocalDateTime createDate;
 
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    //@JoinColumn(name = "address_id", unique = true, nullable = false)
+    @OneToOne(cascade = {CascadeType.PERSIST, CascadeType.REMOVE, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    //@JoinColumn(name = "address_id")
+    @JoinColumn(name = "address_id", unique = true, nullable = false)
     private Address address;
 
     public Student(String firstName, String lastName, String email) {
