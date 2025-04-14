@@ -2,6 +2,7 @@ package se.lexicon.springboot_datajpa.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.UuidGenerator;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
@@ -19,8 +20,9 @@ import java.util.Set;
 public class Student {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    @GeneratedValue
+    @UuidGenerator
+    private String id; // uuid
     @Column(nullable = false, length = 100)
     private String firstName;
     @Column(nullable = false, length = 100)
